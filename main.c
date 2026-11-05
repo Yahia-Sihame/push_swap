@@ -9,5 +9,6 @@ int main(int ac, char **av)
 		printf("%d\n", *arr[i]);
 		i++;
 	}
+	free_ints(arr, i);
 	return 0;
 }

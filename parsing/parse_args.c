@@ -57,13 +57,26 @@ static int	len_arr(char **arr)
 	return (len);
 }
 
+static long	check_for_max(int **ints, char *s, int end)
+{
+	long	n;
+
+	n = ft_atoi(s);
+	if (n > MAX || n < MIN)
+	{
+		free_ints(ints, end);
+		write (2, "Error\n", 6);
+		exit (1);
+	}
+	return (n);
+}
+
 static int	**to_int(char **arr)
 {
 	int	len;
 	int	**ints;
 	int	j;
-		
-	len = 0;
+
 	ints = malloc(sizeof(int *) * (len_arr(arr) + 1));
 	if (!ints)
 		return (NULL);
@@ -74,7 +87,9 @@ static int	**to_int(char **arr)
 		if (!check_algo(arr[len]))
 		{
 			ints[j] = malloc(sizeof(int));
-			*ints[j] = ft_atoi(arr[len]);
+			if (!ints[j])
+				return (NULL);
+			*ints[j] = (int)check_for_max(ints, arr[len], j);
 			j++;
 		}
 		len++;
@@ -101,10 +116,7 @@ int	**parsed(int ac, char **av)
 		while (ints[y])
 		{
 			if (*ints[x] == *ints[y])
-			{
-				write (2, "Error\n", 6);
-				exit (1);
-			}
+				exit (write (2, "Error\n", 6));
 			y++;
 		}
 		x++;

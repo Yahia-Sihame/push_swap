@@ -12,7 +12,20 @@
 
 #include "../push_swap.h"
 
-void	*free_ints(int **arr)
+void	free_ints(int **arr, int end)
+{
+	int	i;
+	
+	i = 0;
+	while (i < end)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+void	free_strs(char **arr)
 {
 	int	i;
 
@@ -23,20 +36,4 @@ void	*free_ints(int **arr)
 		i++;
 	}
 	free(arr);
-	return (NULL);
 }
-
-void	*free_strs(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	return (NULL);
-}
-
