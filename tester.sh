@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-gcc parsing/*.c utils/*.c -o test
+cc -Wall -Wextra -Werror *.c parsing/*.c utils/*.c -o test
