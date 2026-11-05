@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-gcc *.c utils/*.c -o test
+gcc parsing/*.c utils/*.c -o test
