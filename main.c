@@ -2,13 +2,12 @@
 
 int main(int ac, char **av)
 {
-	int	**arr = parsed(ac, av);
-	int i = 0;
-	while(arr[i] != NULL)
+	t_nums  *head = fill_lst(ac, av);
+	while (head)
 	{
-		printf("%d\n", *arr[i]);
-		i++;
+		printf("%d\n", head->num);
+		head = head->next;
 	}
-	free_ints(arr, i);
+	ft_lstclear(&head);
 	return 0;
 }

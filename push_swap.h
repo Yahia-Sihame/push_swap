@@ -35,21 +35,24 @@ typedef struct s_nums
 }	t_nums;
 
 int	**parsed(int ac, char **av);
-void	free_ints(int **arr, int end);
+void	free_ints(int **arr);
 void	free_strs(char **arr);
 void	err_msg(int ac, char **av);
 
-long	ft_atoi(const char *str);
+long	ft_atoi(const char *str, int **ints);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_lstadd_back(t_nums **alst, t_nums *new);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int	ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlen(const char *str);
 int	check_algo(char *str);
-t_nums	*ft_lstnew(void *content);
+
+t_nums	*ft_lstnew(int num);
+void	ft_lstadd_back(t_nums **lst, t_nums *new);
+t_nums  *fill_lst(int ac, char **av);
+void	ft_lstclear(t_nums **lst);
 
 #endif

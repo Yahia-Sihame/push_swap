@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-long	ft_atoi(const char *str)
+long	ft_atoi(const char *str, int **ints)
 {
 	long	num;
 	int			sign;
@@ -26,6 +26,12 @@ long	ft_atoi(const char *str)
 		if (*str == '-')
 			sign = -1;
 		str++;
+	}
+	if (*str == '+' || *str == '-')
+	{
+		free_ints(ints);
+		write (2, "Error\n", 6);
+		exit(1);
 	}
 	while (*str >= '0' && *str <= '9')
 	{

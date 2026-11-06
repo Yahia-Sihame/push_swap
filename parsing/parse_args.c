@@ -27,13 +27,13 @@ static char	**parse_args(int ac, char **av)
 	while (i < ac)
 	{
 		tmp = ft_strjoin(all, av[i]);
+		free(all);
 		if (!tmp)
 			return (NULL);
-    		free(all);
     		all = ft_strjoin(tmp, " ");
+		free(tmp);
 		if (!all)
 			return (NULL);
-    		free(tmp);
 	        i++;
 	}	       
 	res = ft_split(all, ' ');
@@ -57,14 +57,14 @@ static int	len_arr(char **arr)
 	return (len);
 }
 
-static long	check_for_max(int **ints, char *s, int end)
+static long	check_for_max(int **ints, char *s)
 {
 	long	n;
 
-	n = ft_atoi(s);
+	n = ft_atoi(s, ints);
 	if (n > MAX || n < MIN)
 	{
-		free_ints(ints, end);
+		free_ints(ints);
 		write (2, "Error\n", 6);
 		exit (1);
 	}
@@ -89,12 +89,14 @@ static int	**to_int(char **arr)
 			ints[j] = malloc(sizeof(int));
 			if (!ints[j])
 				return (NULL);
-			*ints[j] = (int)check_for_max(ints, arr[len], j);
+			*ints[j] = (int )check_for_max(ints, arr[len]);
 			j++;
 		}
+		free(arr[len]);
 		len++;
 	}
-	ints[len] = NULL;
+	free(arr);
+	ints[j] = NULL;
 	return (ints);
 }
 
@@ -107,8 +109,7 @@ int	**parsed(int ac, char **av)
 
 	err_msg(ac, av);
 	strs = parse_args(ac, av);
-	ints = to_int(strs);
-	free_strs(strs);
+	ints = to_int(strs);	
 	x = 0;
 	while (ints[x])
 	{
@@ -116,7 +117,11 @@ int	**parsed(int ac, char **av)
 		while (ints[y])
 		{
 			if (*ints[x] == *ints[y])
-				exit (write (2, "Error\n", 6));
+			{
+				free_ints(ints);
+				write (2, "Error\n", 6);
+				exit (1);
+			}
 			y++;
 		}
 		x++;
