@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:08:47 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/05 15:46:28 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/06 16:15:35 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,13 @@ static int	len_arr(char **arr)
 	return (len);
 }
 
-static long	check_for_max(int **ints, char *s)
+static long	check_for_max(int **ints, char *s, char **arr)
 {
 	long	n;
 
-	n = ft_atoi(s, ints);
+	n = ft_atoi(s, ints, arr);
 	if (n > MAX || n < MIN)
-	{
-		free_ints(ints);
-		write (2, "Error\n", 6);
-		exit (1);
-	}
+		free_exit(ints, arr);
 	return (n);
 }
 
@@ -88,14 +84,14 @@ static int	**to_int(char **arr)
 		{
 			ints[j] = malloc(sizeof(int));
 			if (!ints[j])
-				return (NULL);
-			*ints[j] = (int )check_for_max(ints, arr[len]);
+				free_exit(ints, arr);
+			ints[j + 1] = NULL;
+			*ints[j] = (int )check_for_max(ints, arr[len], arr);
 			j++;
 		}
-		free(arr[len]);
 		len++;
 	}
-	free(arr);
+	free_strs(arr);
 	ints[j] = NULL;
 	return (ints);
 }
@@ -104,27 +100,12 @@ int	**parsed(int ac, char **av)
 {
 	char	**strs;
 	int	**ints;
-	int	x;
-	int	y;
-
+	
 	err_msg(ac, av);
 	strs = parse_args(ac, av);
-	ints = to_int(strs);	
-	x = 0;
-	while (ints[x])
-	{
-		y = x + 1;
-		while (ints[y])
-		{
-			if (*ints[x] == *ints[y])
-			{
-				free_ints(ints);
-				write (2, "Error\n", 6);
-				exit (1);
-			}
-			y++;
-		}
-		x++;
-	}
+	if (!strs)
+		free_exit(NULL, NULL);
+	ints = to_int(strs);
+	check_dup(ints);	
 	return (ints);
 }

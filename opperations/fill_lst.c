@@ -1,5 +1,17 @@
 #include "../push_swap.h"
 
+void	free_lst(t_nums **head)
+{
+	t_nums	*tmp;
+
+	while (*head)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
+	}
+}
+
 t_nums	*fill_lst(int ac, char **av)
 {
 	int	**nums;

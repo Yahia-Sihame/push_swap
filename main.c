@@ -2,12 +2,14 @@
 
 int main(int ac, char **av)
 {
-	t_nums  *head = fill_lst(ac, av);
+	t_nums  *head1 = fill_lst(ac, av);
+	t_nums *head = head1;
+
 	while (head)
 	{
 		printf("%d\n", head->num);
 		head = head->next;
 	}
-	ft_lstclear(&head);
+	free_lst(&head1);
 	return 0;
 }

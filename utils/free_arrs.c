@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 03:36:42 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/05 15:04:24 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/06 16:09:24 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ void	free_strs(char **arr)
 		i++;
 	}
 	free(arr);
+}
+
+void	free_exit(int **ints, char **arr)
+{
+	if (ints)
+		free_ints(ints);
+	if (arr)
+		free_strs(arr);
+	write (2, "Error\n", 6);
+	exit (1);
 }

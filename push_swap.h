@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/05 15:25:48 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/06 16:25:01 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int	**parsed(int ac, char **av);
 void	free_ints(int **arr);
 void	free_strs(char **arr);
 void	err_msg(int ac, char **av);
+void	free_exit(int **ints, char **arr);
+void	check_dup(int **ints);
 
-long	ft_atoi(const char *str, int **ints);
+long	ft_atoi(const char *str, int **ints, char **arr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -53,6 +55,6 @@ int	check_algo(char *str);
 t_nums	*ft_lstnew(int num);
 void	ft_lstadd_back(t_nums **lst, t_nums *new);
 t_nums  *fill_lst(int ac, char **av);
-void	ft_lstclear(t_nums **lst);
+void	free_lst(t_nums **head);
 
 #endif
