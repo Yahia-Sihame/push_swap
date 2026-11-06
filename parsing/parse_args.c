@@ -6,13 +6,13 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:08:47 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/06 16:15:35 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/06 17:59:31 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static char	**parse_args(int ac, char **av)
+char	**parse_args(int ac, char **av)
 {
 	char	*tmp;
 	char	*all;

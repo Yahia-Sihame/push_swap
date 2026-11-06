@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/06 16:25:01 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/06 18:07:29 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #define MD "--medium"
 #define CMPLX "--complex"
 #define BNCH "--bensh"
-#define ADPT "--adaptiv"
+#define ADPT "--adaptive"
 
 
 typedef struct s_nums
@@ -34,6 +34,7 @@ typedef struct s_nums
 	struct s_nums	*prev;
 }	t_nums;
 
+char	**parse_args(int ac, char **av);
 int	**parsed(int ac, char **av);
 void	free_ints(int **arr);
 void	free_strs(char **arr);
@@ -57,4 +58,5 @@ void	ft_lstadd_back(t_nums **lst, t_nums *new);
 t_nums  *fill_lst(int ac, char **av);
 void	free_lst(t_nums **head);
 
+int	choose(int ac, char **av);
 #endif

@@ -11,5 +11,6 @@ int main(int ac, char **av)
 		head = head->next;
 	}
 	free_lst(&head1);
+	printf("---->algo %d\n", choose(ac, av));
 	return 0;
 }
