@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 17:27:55 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/06 18:09:34 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/07 12:42:28 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@
 //4 : adaptive.
 
 
-static void	check_algo2(char **strs, int *algo)
+static void	check_algo2(char **strs, int *algo, int **bensh, int *check_dup)
 {
-	int	check_dup;
 	int	i;
 
-	check_dup = 0;
 	i = 0;
 	while (strs[i])
 	{
 		if (check_algo(strs[i]))
 		{
+			if (!ft_strcmp(strs[i], BNSH))
+			{
+				(**bensh)++;
+				(*check_dup)--;
+			}
 			if (!ft_strcmp(strs[i], SMPL))
 				*algo = 1;
 			else if (!ft_strcmp(strs[i], MD))
@@ -38,22 +41,28 @@ static void	check_algo2(char **strs, int *algo)
 				*algo = 3;
 			else if (!ft_strcmp(strs[i], ADPT))
 				*algo = 4;
-			check_dup++;
+			(*check_dup)++;
 		}
 		i++;
 	}
-	if (check_dup > 1)
-		free_exit(NULL, strs);
 }
 
-int	choose(int ac, char **av)
+int	choose(int ac, char **av, int *bensh)
 {
 	char	**strs;
 	int	algo;
+	int	check_dup;
 
+	check_dup = 0;	
 	algo = 0;
 	strs = parse_args(ac, av);
-	check_algo2(strs, &algo);
+	if (!strs)
+		free_exit(NULL,NULL);
+	check_algo2(strs, &algo, &bensh, &check_dup);
+	free_strs(strs);
+	if (check_dup > 1 || *bensh > 1)
+		free_exit(NULL, NULL);
+
 	if (algo == 0)
 		return (4);
 	return (algo);

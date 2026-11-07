@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 23:26:54 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/05 15:19:13 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/07 12:17:27 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_algo(char *str)
 		return (1);
 	else if (!ft_strcmp(str, CMPLX))
 		return (1);
-	else if (!ft_strcmp(str, BNCH))
+	else if (!ft_strcmp(str, BNSH))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 01:55:03 by ebajja            #+#    #+#             */
-/*   Updated: 2026/10/15 01:58:06 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/07 14:40:41 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_nums	*ft_lstnew(int num)
 		return (NULL);
 	new->num = num;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }

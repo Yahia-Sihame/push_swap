@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/06 18:07:29 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/07 14:24:40 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #define SMPL "--simple"
 #define MD "--medium"
 #define CMPLX "--complex"
-#define BNCH "--bensh"
+#define BNSH "--bensh"
 #define ADPT "--adaptive"
 
 
@@ -58,5 +58,11 @@ void	ft_lstadd_back(t_nums **lst, t_nums *new);
 t_nums  *fill_lst(int ac, char **av);
 void	free_lst(t_nums **head);
 
-int	choose(int ac, char **av);
+int	choose(int ac, char **av, int *bensh);
+
+//-----opperations:
+void	swap_a(t_nums **head);
+void	swap_b(t_nums **head);
+void	swap_a_swap_b(t_nums **head);
+
 #endif

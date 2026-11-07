@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 02:22:28 by ebajja            #+#    #+#             */
-/*   Updated: 2026/10/15 02:25:16 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/07 14:40:19 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	ft_lstadd_back(t_nums **lst, t_nums *new)
 	while (head->next)
 		head = head->next;
 	head->next = new;
+	new->prev = head;
 }
