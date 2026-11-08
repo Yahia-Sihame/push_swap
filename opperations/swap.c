@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 14:19:22 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 16:11:52 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/08 16:27:33 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap_a(t_nums **head)
 	t_nums	*second;
 
 	if (!head || !*head || !(*head)->next)
-		return;
+		return ;
 	first = *head;
 	second = first->next;
 	first->next = second->next;
@@ -33,14 +33,26 @@ void	swap_a(t_nums **head)
 
 void	swap_b(t_nums **head)
 {
-	t_nums *tmp = *head;
-	(void)tmp;
+	t_nums	*first;
+	t_nums	*second;
+
+	if (!head || !*head || !(*head)->next)
+		return ;
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*head = second;
 	write (1, "sb\n", 3);
 }
 
-void	swap_a_swap_b(t_nums **head)
+void	swap_a_swap_b(t_nums **head_a, t_nums **head_b)
 {
-	t_nums *tmp = *head;
-	(void)tmp;
+	swap_a(head_a);
+	swap_b(head_b);
 	write (1, "ss\n", 3);
 }
