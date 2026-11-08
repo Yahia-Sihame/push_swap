@@ -6,7 +6,7 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 16:30:25 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/08 18:08:25 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,19 @@ void	free_lst(t_nums **head);
 int	choose(int ac, char **av, int *bensh);
 
 //-----opperations:
-void	swap_a(t_nums **head);
-void	swap_b(t_nums **head);
-void	swap_a_swap_b(t_nums **head_a, t_nums **head_b);
-
+//--->swap:
+void	swap_a(t_nums **head_a);
+void	swap_b(t_nums **head_b);
+void	ss(t_nums **head_a, t_nums **head_b);
+//--->push:
+void	push_a(t_nums **head_a);
+void	push_b(t_nums **head_b);
+//--->rotate:
+void	rotate_a(t_nums **head_a);
+void	rotate_b(t_nums **head_b);
+void	rr(t_nums **head_a, t_nums **head_b);
+//--->reverse rotate:
+void	reverse_rotate_a(t_nums **head_a);
+void	reverse_rotate_b(t_nums **head_b);
+void	rrr(t_nums **head_a, t_nums **head_b);
 #endif

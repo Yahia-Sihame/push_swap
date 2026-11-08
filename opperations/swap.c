@@ -6,13 +6,13 @@
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 14:19:22 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 16:27:33 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/08 18:08:44 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_a(t_nums **head)
+void	swap_a(t_nums **head_a)
 {
 	t_nums	*first;
 	t_nums	*second;
@@ -31,7 +31,7 @@ void	swap_a(t_nums **head)
 	write (1, "sa\n", 3);
 }
 
-void	swap_b(t_nums **head)
+void	swap_b(t_nums **head_b)
 {
 	t_nums	*first;
 	t_nums	*second;
@@ -50,7 +50,7 @@ void	swap_b(t_nums **head)
 	write (1, "sb\n", 3);
 }
 
-void	swap_a_swap_b(t_nums **head_a, t_nums **head_b)
+void	ss(t_nums **head_a, t_nums **head_b)
 {
 	swap_a(head_a);
 	swap_b(head_b);
