@@ -23,8 +23,6 @@ int main(int ac, char **av)
 		printf("%d\n", tmp->num);
 		tmp = tmp->next;
 	}
-	swap_b(&head1);
-	swap_a_swap_b(&head1);
 	free_lst(&head1);
 
 	return 0;

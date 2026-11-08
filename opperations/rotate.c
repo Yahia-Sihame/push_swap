@@ -14,9 +14,11 @@
 
 void	rotate_a(t_nums **head_a)
 {
+  write (1, "ra\n", 3);
 }
 void	rotate_b(t_nums **head_b)
 {
+  write (1, "rb\n", 3);
 }
 void	rr(t_nums **head_a, t_nums **head_b)
 {
