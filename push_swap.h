@@ -70,8 +70,8 @@ void	swap_a(t_nums **head_a);
 void	swap_b(t_nums **head_b);
 void	ss(t_nums **head_a, t_nums **head_b);
 //--->push:
-void	push_a(t_nums **head_a);
-void	push_b(t_nums **head_b);
+void	push_a(t_nums **head_a, t_nums **head_b);
+void	push_b(t_nums **head_b, t_nums **head_a);
 //--->rotate:
 void	rotate_a(t_nums **head_a);
 void	rotate_b(t_nums **head_b);
@@ -80,4 +80,5 @@ void	rr(t_nums **head_a, t_nums **head_b);
 void	reverse_rotate_a(t_nums **head_a);
 void	reverse_rotate_b(t_nums **head_b);
 void	rrr(t_nums **head_a, t_nums **head_b);
+
 #endif
