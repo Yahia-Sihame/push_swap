@@ -4,10 +4,10 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
-			algorithems/choose_algo.c\
-			algorithems/complex.c\
-			algorithems/medium.c\
-			algorithems/simple.c\
+			algorithms/choose_algo.c\
+			algorithms/complex.c\
+			algorithms/medium.c\
+			algorithms/simple.c\
 			opperations/fill_lst.c \
 			opperations/push.c \
 			opperations/reverse.c \
