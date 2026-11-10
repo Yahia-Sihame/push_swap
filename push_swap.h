@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/10 01:06:48 by ysihame          ###   ########.fr       */
+/*   Updated: 2026/11/08 18:08:25 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_nums	*ft_lstnew(int num);
 void	ft_lstadd_back(t_nums **lst, t_nums *new);
 t_nums  *fill_lst(int ac, char **av);
 void	free_lst(t_nums **head);
-
+int	ft_lstsize(t_nums *lst);
 //------->ALGOS:
 int	choose(int ac, char **av, int *bensh);
 
@@ -71,7 +71,7 @@ void	swap_b(t_nums **head_b);
 void	ss(t_nums **head_a, t_nums **head_b);
 //--->push:
 void	push_a(t_nums **head_a, t_nums **head_b);
-void	push_b(t_nums **head_a, t_nums **head_b);
+void	push_b(t_nums **head_b, t_nums **head_a);
 //--->rotate:
 void	rotate_a(t_nums **head_a);
 void	rotate_b(t_nums **head_b);
@@ -80,5 +80,7 @@ void	rr(t_nums **head_a, t_nums **head_b);
 void	reverse_rotate_a(t_nums **head_a);
 void	reverse_rotate_b(t_nums **head_b);
 void	rrr(t_nums **head_a, t_nums **head_b);
-
+//--->sort:
+void simple(t_nums **head_a, t_nums **head_b);
+void  push_swap(int ac, char **av);
 #endif

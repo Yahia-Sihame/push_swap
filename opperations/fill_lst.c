@@ -45,3 +45,4 @@ t_nums	*fill_lst(int ac, char **av)
 	free(nums);
 	return (head);
 }
+
