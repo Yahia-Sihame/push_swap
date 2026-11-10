@@ -15,3 +15,8 @@ void  push_swap(int ac, char **av)
   if (algo == 1)
     simple(&head_a, &head_b);
 }
+
+int main(int ac, char **av)
+{
+  push_swap(ac, av);
+}

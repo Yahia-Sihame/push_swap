@@ -20,4 +20,6 @@ void simple(t_nums **head_a, t_nums **head_b)
     }
     while (*head_b)
         push_a(head_a, head_b);
+    free_lst(head_a);
+    free_lst(head_b);
 }
