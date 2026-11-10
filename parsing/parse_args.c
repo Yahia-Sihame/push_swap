@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:08:47 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 15:00:42 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/09 18:11:42 by ysihame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**parse_args(int ac, char **av)
 	char	*all;
 	char	**res;
 	int	i;
-	
+
 	i = 1;
 	all = malloc(sizeof(char));
 	if (!all)
@@ -35,7 +35,7 @@ char	**parse_args(int ac, char **av)
 		if (!all)
 			return (NULL);
 	        i++;
-	}	       
+	}
 	res = ft_split(all, ' ');
 	free(all);
 	return (res);
@@ -100,12 +100,12 @@ int	**parsed(int ac, char **av)
 {
 	char	**strs;
 	int	**ints;
-	
+
 	err_msg(ac, av);
 	strs = parse_args(ac, av);
 	if (!strs)
 		free_exit(NULL, NULL);
 	ints = to_int(strs);
-	check_dup(ints);	
+	check_dup(ints);
 	return (ints);
 }

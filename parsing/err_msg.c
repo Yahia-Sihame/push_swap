@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_msg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 23:26:54 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/07 12:17:27 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/09 18:30:56 by ysihame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,17 @@ static int	check_args(int ac, char **av)
   if (ac < 2)
     return (1);
   i = 1;
+  while (check_algo(av[i]))
+	i++;
   while (i < ac)
   {
     j = 0;
     while (av[i][j])
     {
       if (check_algo(av[i]))
-        break;
+        free_exit(NULL, NULL);
       if (!(av[i][j] >= '0' && av[i][j] <= '9')
-          && av[i][j] != ' ' && av[i][j] != '-' 
+          && av[i][j] != ' ' && av[i][j] != '-'
           && av[i][j] != '+')
         return (1);
       j++;

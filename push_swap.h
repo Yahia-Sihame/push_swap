@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 18:08:25 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/10 01:06:48 by ysihame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	swap_b(t_nums **head_b);
 void	ss(t_nums **head_a, t_nums **head_b);
 //--->push:
 void	push_a(t_nums **head_a, t_nums **head_b);
-void	push_b(t_nums **head_b, t_nums **head_a);
+void	push_b(t_nums **head_a, t_nums **head_b);
 //--->rotate:
 void	rotate_a(t_nums **head_a);
 void	rotate_b(t_nums **head_b);
