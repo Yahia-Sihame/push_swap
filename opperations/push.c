@@ -29,6 +29,7 @@ void	push_a(t_nums **head_a, t_nums **head_b)
 	*head_a = node;
 	write(1, "pa\n", 3);
 }
+
 void	push_b(t_nums **head_a, t_nums **head_b)
 {
 	t_nums	*node;

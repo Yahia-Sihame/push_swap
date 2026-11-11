@@ -17,7 +17,7 @@ char	**parse_args(int ac, char **av)
 	char	*tmp;
 	char	*all;
 	char	**res;
-	int	i;
+	int		i;
 
 	i = 1;
 	all = malloc(sizeof(char));
@@ -30,11 +30,11 @@ char	**parse_args(int ac, char **av)
 		free(all);
 		if (!tmp)
 			return (NULL);
-    		all = ft_strjoin(tmp, " ");
+		all = ft_strjoin(tmp, " ");
 		free(tmp);
 		if (!all)
 			return (NULL);
-	        i++;
+		i++;
 	}
 	res = ft_split(all, ' ');
 	free(all);
@@ -50,7 +50,7 @@ static int	len_arr(char **arr)
 	len = 0;
 	while (arr[i])
 	{
-		if(!check_algo(arr[i]))
+		if (!check_algo(arr[i]))
 			len++;
 		i++;
 	}
@@ -99,7 +99,7 @@ static int	**to_int(char **arr)
 int	**parsed(int ac, char **av)
 {
 	char	**strs;
-	int	**ints;
+	int		**ints;
 
 	err_msg(ac, av);
 	strs = parse_args(ac, av);

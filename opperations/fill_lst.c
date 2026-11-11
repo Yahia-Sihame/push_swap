@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_lst.c                                          :+:      :+:    :+:   */
+/*   fill_lst.c                                          :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,8 +26,8 @@ void	free_lst(t_nums **head)
 
 t_nums	*fill_lst(int ac, char **av)
 {
-	int	**nums;
-	int	i;
+	int		**nums;
+	int		i;
 	t_nums	*head;
 	t_nums	*tmp;
 
@@ -45,4 +45,3 @@ t_nums	*fill_lst(int ac, char **av)
 	free(nums);
 	return (head);
 }
-
