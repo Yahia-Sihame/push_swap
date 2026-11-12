@@ -1,25 +1,50 @@
 #include "../push_swap.h"
 
-void	simple(t_nums **head_a, t_nums **head_b)
+static int	get_min_pos(t_nums *a)
+{
+	int	i;
+	int	pos;
+	int	min;
+
+	i = 0;
+	pos = 0;
+	min = a->num;
+	while (a)
+	{
+		if (a->num < min)
+		{
+			min = a->num;
+			pos = i;
+		}
+		a = a->next;
+		i++;
+	}
+	return (pos);
+}
+
+void	simple(t_nums **a, t_nums **b)
 {
 	int	size;
-	int	i;
+	int	pos;
 
-	while (*head_a)
+	while (*a)
 	{
-		size = ft_lstsize(*head_a);
-		i = 0;
-		while (i < size - 1)
+		size = ft_lstsize(*a);
+		pos = get_min_pos(*a);
+		while (pos > 0 && pos <= size / 2)
 		{
-			reverse_rotate_a(head_a);
-			if ((*head_a)->num > (*head_a)->next->num)
-				swap_a(head_a);
-			i++;
+			rotate_a(a);
+			pos--;
 		}
-		push_b(head_a, head_b);
+		while (pos > size / 2 && pos < size)
+		{
+			reverse_rotate_a(a);
+			pos++;
+		}
+		push_b(a, b);
 	}
-	while (*head_b)
-		push_a(head_a, head_b);
-	free_lst(head_a);
-	free_lst(head_b);
+	while (*b)
+		push_a(a, b);
+	free_lst(a);
+	free_lst(b);
 }

@@ -57,7 +57,9 @@ static int	check_args(int ac, char **av)
 
 void	err_msg(int ac, char **av)
 {
-	if (ac < 2 || check_args(ac, av))
+  if (ac < 2)
+    exit(0);
+	if (check_args(ac, av))
 	{
 		write (2, "Error\n", 6);
 		exit (1);
