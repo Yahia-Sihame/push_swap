@@ -18,7 +18,7 @@
 //3 : complex.
 //4 : adaptive.
 
-static void	check_algo2(char **strs, int *algo, int **bensh, int *check_dup)
+static void	check_algo2(char **strs, int *algo, int **bench, int *check_dup)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ static void	check_algo2(char **strs, int *algo, int **bensh, int *check_dup)
 		{
 			if (!ft_strcmp(strs[i], BNSH))
 			{
-				(**bensh)++;
+				(**bench)++;
 				(*check_dup)--;
 			}
 			if (!ft_strcmp(strs[i], SMPL))
@@ -46,7 +46,7 @@ static void	check_algo2(char **strs, int *algo, int **bensh, int *check_dup)
 	}
 }
 
-int	choose(int ac, char **av, int *bensh)
+int	choose(int ac, char **av, int *bench)
 {
 	char	**strs;
 	int		algo;
@@ -57,9 +57,9 @@ int	choose(int ac, char **av, int *bensh)
 	strs = parse_args(ac, av);
 	if (!strs)
 		free_exit(NULL, NULL);
-	check_algo2(strs, &algo, &bensh, &check_dup);
+	check_algo2(strs, &algo, &bench, &check_dup);
 	free_strs(strs);
-	if (check_dup > 1 || *bensh > 1)
+	if (check_dup > 1 || *bench > 1)
 		free_exit(NULL, NULL);
 	if (algo == 0)
 		return (4);

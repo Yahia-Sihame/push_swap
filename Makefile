@@ -8,6 +8,8 @@ SRCS = push_swap.c \
 			algorithms/complex.c\
 			algorithms/medium.c\
 			algorithms/simple.c\
+			algorithms/adaptive.c\
+			algorithms/bench.c\
 			opperations/fill_lst.c \
 			opperations/push.c \
 			opperations/reverse.c \

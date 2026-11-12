@@ -23,7 +23,7 @@
 # define SMPL "--simple"
 # define MD "--medium"
 # define CMPLX "--complex"
-# define BNSH "--bensh"
+# define BNSH "--bench"
 # define ADPT "--adaptive"
 
 typedef struct s_nums
@@ -32,7 +32,22 @@ typedef struct s_nums
 	struct s_nums	*next;
 	struct s_nums	*prev;
 }	t_nums;
-
+typedef struct
+{
+  int   bench;
+  float disorder; 
+  int   sa;
+  int   sb;
+  int   ss;
+  int   pa;
+  int   pb;
+  int   ra;
+  int   rb;
+  int   rr;
+  int   rra;
+  int   rrb;
+  int   rrr;
+}   t_bench;
 //------>PARSING:
 char	**parse_args(int ac, char **av);
 int		**parsed(int ac, char **av);
@@ -62,7 +77,7 @@ void	free_lst(t_nums **head);
 int		ft_lstsize(t_nums *lst);
 
 //------->ALGOS:
-int		choose(int ac, char **av, int *bensh);
+int		choose(int ac, char **av, int *bench);
 
 //-----opperations:
 //--->swap:
@@ -83,9 +98,10 @@ void	rrr(t_nums **head_a, t_nums **head_b);
 //--->sort:
 void	simple(t_nums **head_a, t_nums **head_b);
 void	medium(t_nums **head_a, t_nums **head_b);
-void	push_swap(int ac, char **av);
+void  complex(t_nums **head_a, t_nums **head_b);
+void  adaptive(t_nums **head_a, t_nums **head_b);
 
 //--->disorder:
-int		compute_disorder(int ac, char **av);
-
+double	compute_disorder(int ac, char **av);
+void  ft_bench(int bench);
 #endif

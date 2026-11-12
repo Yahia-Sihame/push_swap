@@ -22,20 +22,14 @@ static int	count_ints(int **ints)
 	return (i);
 }
 
-int	compute_disorder(int ac, char **av)
+static long	count_inversions(int **ints, int count)
 {
-	int	mistakes;
-	int	**ints;
-	int	count;
-	int	i;
-	int	j;
+	long	mistakes;
+	int		i;
+	int		j;
 
-	ints = parsed(ac, av);
-	count = count_ints(ints);
 	mistakes = 0;
 	i = 0;
-	if (count < 2)
-		return (0);
 	while (i < count - 1)
 	{
 		j = i + 1;
@@ -47,5 +41,25 @@ int	compute_disorder(int ac, char **av)
 		}
 		i++;
 	}
-	return (mistakes * 100 / (count * (count - 1) / 2));
+	return (mistakes);
+}
+
+double	compute_disorder(int ac, char **av)
+{
+	int		**ints;
+	int		count;
+	long	mistakes;
+	long	total;
+
+	ints = parsed(ac, av);
+	count = count_ints(ints);
+	if (count < 2)
+	{
+		free_ints(ints);
+		return (0.0);
+	}
+	mistakes = count_inversions(ints, count);
+	total = (long)count * (count - 1) / 2;
+	free_ints(ints);
+	return ((double)mistakes * 100.0 / (double)total);
 }

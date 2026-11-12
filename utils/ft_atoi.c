@@ -34,5 +34,7 @@ long	ft_atoi(const char *str, int **ints, char **arr)
 		num = num * 10 + (*str - '0');
 		str++;
 	}
+  if (*str == '+' || *str == '-')
+    free_exit(ints, arr);
 	return (num * sign);
 }
