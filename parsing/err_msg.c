@@ -27,6 +27,16 @@ int	check_algo(char *str)
 	return (0);
 }
 
+static int	is_empty(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	return (str[i] == '\0');
+}
+
 static int	check_args(int ac, char **av)
 {
 	int	i;
@@ -40,6 +50,8 @@ static int	check_args(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
+    if (is_empty(av[i]))
+      free_exit(NULL, NULL);
 		while (av[i][j])
 		{
 			if (check_algo(av[i]))
