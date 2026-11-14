@@ -52,7 +52,7 @@ void	push_cheapest_to_b(t_nums **a, t_nums **b, t_bench *bench)
 		reverse_rotate_both(a, b, cheap, bench);
 	prep_for_push(a, cheap, 'a', bench);
 	prep_for_push(b, target, 'b', bench);
-	push_b(b, a, bench);
+	push_b(a, b, bench);
 }
 
 void	push_b_to_a(t_nums **a, t_nums **b, t_bench *bench)
