@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 18:08:25 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/14 08:16:54 by ysihame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@
 typedef struct s_nums
 {
 	int				num;
+	int				index;
+	int				above_median;
+	int				push_cost;
+	int				cheapest;
+	struct s_nums	*target_node;
 	struct s_nums	*next;
 	struct s_nums	*prev;
 }	t_nums;
@@ -83,9 +88,29 @@ void	rrr(t_nums **head_a, t_nums **head_b);
 //--->sort:
 void	simple(t_nums **head_a, t_nums **head_b);
 void	medium(t_nums **head_a, t_nums **head_b);
+void	complex(t_nums **a, t_nums **b);
 void	push_swap(int ac, char **av);
 
 //--->disorder:
 int		compute_disorder(int ac, char **av);
+
+
+// --->Turk Sort  (Phase 1):
+void	set_current_index(t_nums *stack);
+t_nums	*max_node(t_nums *t);
+t_nums	*min_node(t_nums *t);
+void	set_target_a(t_nums *a, t_nums *b);
+void	cost_analysis_a(t_nums *a, t_nums *b);
+void	set_cheapest(t_nums *stack);
+t_nums	*get_cheapest(t_nums *stack);
+
+// --->Turk Sort  (Phase 2):
+void	rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node);
+void	reverse_rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node);
+void	prep_for_push(t_nums **stack, t_nums *top_node, char stack_name);
+void	push_cheapest_to_b(t_nums **a, t_nums **b);
+void	init_nodes_b(t_nums *a, t_nums *b);
+void	push_b_to_a(t_nums **a, t_nums **b);
+
 
 #endif

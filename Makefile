@@ -6,6 +6,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c \
 			algorithms/choose_algo.c\
 			algorithms/complex.c\
+			algorithms/turk_cost.c\
+			algorithms/turk_moves.c\
+			algorithms/turk_utils.c\
 			algorithms/medium.c\
 			algorithms/simple.c\
 			opperations/fill_lst.c \

@@ -14,6 +14,8 @@ void	push_swap(int ac, char **av)
 	algo = choose(ac, av, &bensh);
 	if (algo == 1)
 		simple(&head_a, &head_b);
+	if (algo == 4)
+		complex(&head_a,&head_b);
 }
 
 int	main(int ac, char **av)
