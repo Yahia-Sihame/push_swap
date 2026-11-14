@@ -59,7 +59,7 @@ void	push_b_to_a(t_nums **a, t_nums **b)
 	{
 		set_current_index(*a);
 		set_current_index(*b);
-		init_nodes_b(*a, *b);
+		set_target_b(*a, *b);
 		prep_for_push(a, (*b)->target_node, 'a');
 		push_a(a, b);
 	}

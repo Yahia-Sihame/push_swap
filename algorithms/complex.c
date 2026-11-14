@@ -21,7 +21,7 @@ void	set_current_index(t_nums *stack)
 	}
 }
 
-void	init_nodes_b(t_nums *a, t_nums *b)
+void	set_target_b(t_nums *a, t_nums *b)
 {
 	long	best_match_value;
 	t_nums	*current_a;

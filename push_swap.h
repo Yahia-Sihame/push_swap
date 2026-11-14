@@ -6,7 +6,7 @@
 /*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/14 08:16:54 by ysihame          ###   ########.fr       */
+/*   Updated: 2026/11/14 16:54:56 by ysihame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node);
 void	reverse_rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node);
 void	prep_for_push(t_nums **stack, t_nums *top_node, char stack_name);
 void	push_cheapest_to_b(t_nums **a, t_nums **b);
-void	init_nodes_b(t_nums *a, t_nums *b);
+void	set_target_b(t_nums *a, t_nums *b);
 void	push_b_to_a(t_nums **a, t_nums **b);
 
 
