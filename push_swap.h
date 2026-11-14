@@ -108,7 +108,7 @@ void	rrr(t_nums **head_a, t_nums **head_b, t_bench *bench);
 void	simple(t_nums **head_a, t_nums **head_b, t_bench *bench);
 void	medium(t_nums **head_a, t_nums **head_b, t_bench *bench);
 void  complex(t_nums **head_a, t_nums **head_b, t_bench *bench);
-void  adaptive(t_nums **head_a, t_nums **head_b, t_bench *bench);
+void  adaptive(t_nums **head_a, t_nums **head_b, t_bench *bench, int ac, char **av);
 
 // --->disorder:
 double	compute_disorder(int ac, char **av);

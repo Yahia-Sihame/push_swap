@@ -54,7 +54,7 @@ double	compute_disorder(int ac, char **av)
 
 	ints = parsed(ac, av);
 	if (!ints)
-		return (0.0);
+		return (-1.0);
 	count = count_ints(ints);
 	if (count < 2)
 	{

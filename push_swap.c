@@ -21,8 +21,6 @@ static void merge(t_nums **head_a, t_nums **head_b, int algo, int bench_op, t_be
     medium(head_a, head_b, bench);
   else if (algo == 3)
     complex(head_a, head_b, bench);
-  else if (algo == 4)
-    adaptive(head_a, head_b, bench);
   if (bench_op == 1)
     ft_bench(bench, algo);
 }
@@ -33,11 +31,14 @@ static void	push_swap(int ac, char **av, t_bench *bench)
 	int		bench_op;
 	int		algo;
 
+
 	bench_op = 0;
 	algo = 0;
 	head_b = NULL;
 	head_a = fill_lst(ac, av);
 	algo = choose(ac, av, &bench_op);
+  if (algo == 4)
+    adaptive(&head_a, &head_b, bench, ac, av);
   merge(&head_a, &head_b, algo, bench_op, bench);
   free_lst(&head_a);
   free_lst(&head_b);
