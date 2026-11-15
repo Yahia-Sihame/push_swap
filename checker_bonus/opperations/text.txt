@@ -1,0 +1,233 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_lst.c                                          :+:      :+:    :+:  */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 15:08:17 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/08 18:03:57 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../checker.h"
+
+void	free_lst(t_nums **head)
+{
+	t_nums	*tmp;
+
+	while (*head)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
+	}
+}
+
+t_nums	*fill_lst(int ac, char **av)
+{
+	int		**nums;
+	int		i;
+	t_nums	*head;
+	t_nums	*tmp;
+
+	nums = parsed(ac, av);
+	head = NULL;
+	i = 0;
+	while (nums[i])
+	{
+		tmp = ft_lstnew(*nums[i]);
+		free(nums[i]);
+		ft_lstadd_back(&head, tmp);
+		i++;
+	}
+	free(nums[i]);
+	free(nums);
+	return (head);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 17:03:26 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/08 17:56:59 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../checker.h"
+
+void	push_a(t_nums **head_a, t_nums **head_b)
+{
+	t_nums	*node;
+
+	if (!head_a || !head_b || !*head_b)
+		return ;
+	node = *head_b;
+	*head_b = node->next;
+	if (*head_b)
+		(*head_b)->prev = NULL;
+	node->next = *head_a;
+	if (*head_a)
+		(*head_a)->prev = node;
+	node->prev = NULL;
+	*head_a = node;
+}
+
+void	push_b(t_nums **head_a, t_nums **head_b)
+{
+	t_nums	*node;
+
+	if (!head_a || !head_b || !*head_a)
+		return ;
+	node = *head_a;
+	*head_a = node->next;
+	if (*head_a)
+		(*head_a)->prev = NULL;
+	node->next = *head_b;
+	if (*head_b)
+		(*head_b)->prev = node;
+	node->prev = NULL;
+	*head_b = node;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 15:08:17 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/10 01:07:05 by ysihame          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../checker.h"
+
+static void	reverse_rotate(t_nums **head)
+{
+	t_nums	*last;
+
+	if (!head || !*head || !(*head)->next)
+		return ;
+	last = *head;
+	while (last->next)
+		last = last->next;
+	last->prev->next = NULL;
+	last->prev = NULL;
+	last->next = *head;
+	(*head)->prev = last;
+	*head = last;
+}
+
+void	reverse_rotate_a(t_nums **head_a)
+{
+	reverse_rotate(head_a);
+}
+
+void	reverse_rotate_b(t_nums **head_b)
+{
+	reverse_rotate(head_b);
+}
+
+void	rrr(t_nums **head_a, t_nums **head_b)
+{
+	reverse_rotate(head_a);
+	reverse_rotate(head_b);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 17:58:32 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/08 18:00:55 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../checker.h"
+
+static void	rotate(t_nums **head)
+{
+	t_nums	*first;
+	t_nums	*last;
+
+	if (!head || !*head || !(*head)->next)
+		return ;
+	first = *head;
+	last = first;
+	while (last->next)
+		last = last->next;
+	*head = first->next;
+	(*head)->prev = NULL;
+	first->next = NULL;
+	first->prev = last;
+	last->next = first;
+}
+
+void	rotate_a(t_nums **head_a)
+{
+	rotate(head_a);
+}
+
+void	rotate_b(t_nums **head_b)
+{
+	rotate(head_b);
+}
+
+void	rr(t_nums **head_a, t_nums **head_b)
+{
+	rotate(head_a);
+	rotate(head_b);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/07 14:19:22 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/08 18:08:44 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../checker.h"
+
+static void	swap(t_nums **head)
+{
+	t_nums	*first;
+	t_nums	*second;
+
+	if (!head || !*head || !(*head)->next)
+		return ;
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*head = second;
+}
+
+void	swap_a(t_nums **head_a)
+{
+	swap(head_a);
+}
+
+void	swap_b(t_nums **head_b)
+{
+	swap(head_b);
+}
+
+void	ss(t_nums **head_a, t_nums **head_b)
+{
+	swap(head_a);
+	swap(head_b);
+}
