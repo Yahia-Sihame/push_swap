@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 void	rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node,
 		t_bench *bench)
 {

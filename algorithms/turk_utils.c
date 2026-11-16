@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_nums	*max_node(t_nums *t)
 {

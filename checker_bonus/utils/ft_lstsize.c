@@ -1,4 +1,4 @@
-#include "../checker.h"
+#include "checker.h"
 
 int	ft_lstsize(t_nums *lst)
 {

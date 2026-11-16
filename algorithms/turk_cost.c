@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	set_target_a(t_nums *a, t_nums *b)
 {

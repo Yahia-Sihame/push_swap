@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "checker.h"
 
 void	ft_lstadd_back(t_nums **lst, t_nums *new)
 {

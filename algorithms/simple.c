@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	get_min_pos(t_nums *head_a)
 {

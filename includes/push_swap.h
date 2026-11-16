@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 
 # define MAX 2147483647
 # define MIN -2147483648

@@ -4,10 +4,10 @@ BONUS = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I. -I./ft_printf
+INCLUDES = -I./includes 
 
 PRINTF_DIR = ft_printf
-PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
+PRINTF_LIB = ft_printf/libftprintf.a
 
 SRCS = push_swap.c \
 		algorithms/choose_algo.c \

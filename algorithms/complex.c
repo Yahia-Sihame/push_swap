@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 void	set_current_index(t_nums *stack)
 {
 	int	i;

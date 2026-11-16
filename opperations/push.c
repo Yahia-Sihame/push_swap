@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	push_a(t_nums **head_a, t_nums **head_b, t_bench *bench)
 {
