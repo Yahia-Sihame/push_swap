@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   medium.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 16:04:07 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:29:31 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
 int	ft_sqrt(int n)
 {
 	int	i;
@@ -31,7 +44,8 @@ static int	get_max_pos(t_nums *head_b)
 	return (pos);
 }
 
-static void	push_chunks(t_nums **head_a, t_nums **head_b, int chunk, t_bench *bench)
+static void	push_chunks(t_nums **head_a, t_nums **head_b, int chunk,
+		t_bench *bench)
 {
 	int	i;
 

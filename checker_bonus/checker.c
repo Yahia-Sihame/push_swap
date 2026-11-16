@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 16:21:03 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 17:05:04 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "checker.h"
 
@@ -41,6 +52,15 @@ static int	execute(t_nums **lst_a, t_nums **lst_b, char *op)
 	return (0);
 }
 
+static int	end_line(t_nums **lst_a, t_nums **lst_b, char *op, int *i)
+{
+	op[*i] = '\0';
+	if (*i == 0 || execute(lst_a, lst_b, op))
+		return (1);
+	*i = 0;
+	return (0);
+}
+
 static int	read_instruction(t_nums **lst_a, t_nums **lst_b)
 {
 	char	op[4];
@@ -49,18 +69,12 @@ static int	read_instruction(t_nums **lst_a, t_nums **lst_b)
 	ssize_t	bytes;
 
 	i = 0;
-	while ((bytes = read(0, &c, 1)) > 0)
+	bytes = read(0, &c, 1);
+	while (bytes > 0)
 	{
-		if (c == '\r')
-			continue ;
-		if (c == '\n')
-		{
-			op[i] = '\0';
-			if (i == 0 || execute(lst_a, lst_b, op))
-				return (1);
-			i = 0;
-		}
-		else
+		if (c == '\n' && end_line(lst_a, lst_b, op, &i))
+			return (1);
+		else if (c != '\n' && c != '\r')
 		{
 			if (i >= 3)
 				return (1);
@@ -69,12 +83,9 @@ static int	read_instruction(t_nums **lst_a, t_nums **lst_b)
 	}
 	if (bytes < 0)
 		return (1);
-	if (i > 0)
-	{
-		op[i] = '\0';
-		if (execute(lst_a, lst_b, op))
-			return (1);
-	}
+	op[i] = '\0';
+	if (i > 0 && execute(lst_a, lst_b, op))
+		return (1);
 	return (0);
 }
 
@@ -103,4 +114,3 @@ int	main(int ac, char **av)
 	free_lst(&lst_b);
 	return (0);
 }
-

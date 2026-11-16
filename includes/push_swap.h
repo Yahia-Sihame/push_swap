@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/02 22:18:15 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 18:08:25 by ebajja           ###   ########.fr       */
+/*   Created: 2026/11/16 16:22:25 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:44:02 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,28 @@ typedef struct s_nums
 	struct s_nums	*prev;
 }	t_nums;
 
-typedef struct
+typedef struct s_bench
 {
-  int   bench;
-  double disorder; 
-  int   sa;
-  int   sb;
-  int   ss;
-  int   pa;
-  int   pb;
-  int   ra;
-  int   rb;
-  int   rr;
-  int   rra;
-  int   rrb;
-  int   rrr;
-}   t_bench;
+	int		bench;
+	double	disorder;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+}	t_bench;
+
+//---> algo:
+//1 : simple.
+//2 : medium.
+//3 : complex.
+//4 : adaptive.
 //------>PARSING:
 char	**parse_args(int ac, char **av);
 int		**parsed(int ac, char **av);
@@ -74,8 +80,8 @@ char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlen(const char *str);
 int		check_algo(char *str);
-void  ft_putnbr_fd(int n, int fd);
-void ft_putdouble(double num);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putdouble(double num);
 void	ft_putchar_fd(char c, int fd);
 
 //------>LINKED LISTS UTILS:
@@ -107,8 +113,9 @@ void	rrr(t_nums **head_a, t_nums **head_b, t_bench *bench);
 //--->sort:
 void	simple(t_nums **head_a, t_nums **head_b, t_bench *bench);
 void	medium(t_nums **head_a, t_nums **head_b, t_bench *bench);
-void  complex(t_nums **head_a, t_nums **head_b, t_bench *bench);
-void  adaptive(t_nums **head_a, t_nums **head_b, t_bench *bench, int ac, char **av);
+void	complex(t_nums **head_a, t_nums **head_b, t_bench *bench);
+void	adaptive(t_nums **head_a, t_nums **head_b, t_bench *bench,
+			double disorder);
 
 // --->disorder:
 double	compute_disorder(int ac, char **av);
@@ -125,12 +132,13 @@ t_nums	*get_cheapest(t_nums *stack);
 
 // --->Turk Sort (Phase 2):
 void	rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node,
-		t_bench *bench);
+			t_bench *bench);
 void	reverse_rotate_both(t_nums **a, t_nums **b, t_nums *cheapest_node,
-		t_bench *bench);
+			t_bench *bench);
 void	prep_for_push(t_nums **stack, t_nums *top_node, char stack_name,
-		t_bench *bench);
+			t_bench *bench);
 void	push_cheapest_to_b(t_nums **a, t_nums **b, t_bench *bench);
 void	set_target_b(t_nums *a, t_nums *b);
 void	push_b_to_a(t_nums **a, t_nums **b, t_bench *bench);
+
 #endif

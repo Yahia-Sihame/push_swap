@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/08 17:03:26 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 17:56:59 by ebajja           ###   ########.fr       */
+/*   Created: 2026/11/16 16:23:46 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:44:20 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	push_a(t_nums **head_a, t_nums **head_b, t_bench *bench)
 		(*head_a)->prev = node;
 	node->prev = NULL;
 	*head_a = node;
-  bench->pa += 1;
+	bench->pa += 1;
 	write(1, "pa\n", 3);
 }
 
@@ -46,6 +46,6 @@ void	push_b(t_nums **head_a, t_nums **head_b, t_bench *bench)
 		(*head_b)->prev = node;
 	node->prev = NULL;
 	*head_b = node;
-  bench->pb += 1;
+	bench->pb += 1;
 	write(1, "pb\n", 3);
 }

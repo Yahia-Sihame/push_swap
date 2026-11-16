@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/07 14:19:22 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 18:08:44 by ebajja           ###   ########.fr       */
+/*   Created: 2026/11/16 16:24:44 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:44:26 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ static void	swap(t_nums **head)
 void	swap_a(t_nums **head_a, t_bench *bench)
 {
 	swap(head_a);
-  bench->sa += 1;
+	bench->sa += 1;
 	write(1, "sa\n", 3);
 }
 
 void	swap_b(t_nums **head_b, t_bench *bench)
 {
 	swap(head_b);
-  bench->sb += 1;
+	bench->sb += 1;
 	write(1, "sb\n", 3);
 }
 
@@ -48,6 +48,6 @@ void	ss(t_nums **head_a, t_nums **head_b, t_bench *bench)
 {
 	swap(head_a);
 	swap(head_b);
-  bench->ss += 1;
+	bench->ss += 1;
 	write(1, "ss\n", 3);
 }

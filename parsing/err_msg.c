@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_msg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/04 23:26:54 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/09 18:30:56 by ysihame          ###   ########.fr       */
+/*   Created: 2026/11/16 16:25:43 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:54:29 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,29 @@ static int	is_empty(char *str)
 	return (str[i] == '\0');
 }
 
+static int	check_chars(char *str)
+{
+	int	j;
+
+	j = 0;
+	if (is_empty(str))
+		free_exit(NULL, NULL);
+	while (str[j])
+	{
+		if (check_algo(str))
+			free_exit(NULL, NULL);
+		if (!(str[j] >= '0' && str[j] <= '9')
+			&& str[j] != ' ' && str[j] != '-'
+			&& str[j] != '+')
+			return (1);
+		j++;
+	}
+	return (0);
+}
+
 static int	check_args(int ac, char **av)
 {
 	int	i;
-	int	j;
 
 	if (ac < 2)
 		return (1);
@@ -49,19 +68,8 @@ static int	check_args(int ac, char **av)
 		i++;
 	while (i < ac)
 	{
-		j = 0;
-    if (is_empty(av[i]))
-      free_exit(NULL, NULL);
-		while (av[i][j])
-		{
-			if (check_algo(av[i]))
-				free_exit(NULL, NULL);
-			if (!(av[i][j] >= '0' && av[i][j] <= '9')
-				&& av[i][j] != ' ' && av[i][j] != '-'
-				&& av[i][j] != '+')
-				return (1);
-			j++;
-		}
+		if (check_chars(av[i]))
+			return (1);
 		i++;
 	}
 	return (0);
@@ -69,8 +77,8 @@ static int	check_args(int ac, char **av)
 
 void	err_msg(int ac, char **av)
 {
-  if (ac < 2)
-    exit(0);
+	if (ac < 2)
+		exit(0);
 	if (check_args(ac, av))
 	{
 		write (2, "Error\n", 6);

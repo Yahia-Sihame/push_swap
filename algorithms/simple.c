@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   simple.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 16:04:23 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:29:22 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_min_pos(t_nums *head_a)
@@ -37,9 +49,9 @@ void	simple(t_nums **head_a, t_nums **head_b, t_bench *bench)
 {
 	int	size;
 	int	pos;
-  
-  if (is_sorted(*head_a))
-    return ;
+
+	if (is_sorted(*head_a))
+		return ;
 	while (*head_a)
 	{
 		size = ft_lstsize(*head_a);

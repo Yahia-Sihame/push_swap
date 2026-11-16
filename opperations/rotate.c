@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/08 17:58:32 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 18:00:55 by ebajja           ###   ########.fr       */
+/*   Created: 2026/11/16 16:24:25 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:44:24 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ static void	rotate(t_nums **head)
 void	rotate_a(t_nums **head_a, t_bench *bench)
 {
 	rotate(head_a);
-  bench->ra += 1;
+	bench->ra += 1;
 	write(1, "ra\n", 3);
 }
 
 void	rotate_b(t_nums **head_b, t_bench *bench)
 {
 	rotate(head_b);
-  bench->rb += 1;
+	bench->rb += 1;
 	write(1, "rb\n", 3);
 }
 
@@ -48,6 +48,6 @@ void	rr(t_nums **head_a, t_nums **head_b, t_bench *bench)
 {
 	rotate(head_a);
 	rotate(head_b);
-  bench->rr += 1;
+	bench->rr += 1;
 	write(1, "rr\n", 3);
 }

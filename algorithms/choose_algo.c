@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   choose_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 17:27:55 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/07 12:42:28 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/16 16:29:49 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//---> algo:
-//1 : simple.
-//2 : medium.
-//3 : complex.
-//4 : adaptive.
 
 static void	check_algo2(char **strs, int *algo, int **bench, int *check_dup)
 {

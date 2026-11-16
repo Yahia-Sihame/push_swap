@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 16:03:18 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:29:55 by ebajja           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
 void	set_current_index(t_nums *stack)
 {
 	int	i;
@@ -32,7 +45,8 @@ void	set_target_b(t_nums *a, t_nums *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (b->num < current_a->num && current_a->num < best_match_value)
+			if (b->num < current_a->num
+				&& current_a->num < best_match_value)
 			{
 				best_match_value = current_a->num;
 				target = current_a;

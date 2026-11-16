@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/02 22:08:47 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/09 18:11:42 by ysihame          ###   ########.fr       */
+/*   Created: 2026/11/16 16:12:44 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:38:34 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static int	**to_int(char **arr)
 			if (!ints[j])
 				free_exit(ints, arr);
 			ints[j + 1] = NULL;
-			*ints[j] = (int )check_for_max(ints, arr[len], arr);
+			*ints[j] = (int)check_for_max(ints, arr[len], arr);
 			j++;
 		}
 		len++;

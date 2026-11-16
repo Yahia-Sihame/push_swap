@@ -304,8 +304,6 @@ Both contributors participated in the development of the project and should be a
 ### References
 
 - 42 Push_swap subject.
-- C programming documentation.
-- Linux manual pages (`man`).
 - Algorithm and data structure references.
 - Doubly linked lists and sorting algorithm resources.
 

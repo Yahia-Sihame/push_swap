@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/08 15:08:17 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/10 01:07:05 by ysihame          ###   ########.fr       */
+/*   Created: 2026/11/16 16:24:05 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:44:22 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ static void	reverse_rotate(t_nums **head)
 void	reverse_rotate_a(t_nums **head_a, t_bench *bench)
 {
 	reverse_rotate(head_a);
-  bench->rra += 1;
+	bench->rra += 1;
 	write(1, "rra\n", 4);
 }
 
 void	reverse_rotate_b(t_nums **head_b, t_bench *bench)
 {
 	reverse_rotate(head_b);
-  bench->rrb += 1;
+	bench->rrb += 1;
 	write(1, "rrb\n", 4);
 }
 
@@ -46,6 +46,6 @@ void	rrr(t_nums **head_a, t_nums **head_b, t_bench *bench)
 {
 	reverse_rotate(head_a);
 	reverse_rotate(head_b);
-  bench->rrr += 1;
+	bench->rrr += 1;
 	write(1, "rrr\n", 4);
 }

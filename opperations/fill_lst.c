@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_lst.c                                          :+:      :+:    :+:  */
+/*   fill_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/08 15:08:17 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/08 18:03:57 by ebajja           ###   ########.fr       */
+/*   Created: 2026/11/16 16:22:59 by ebajja            #+#    #+#             */
+/*   Updated: 2026/11/16 16:44:16 by ebajja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	assign_index(t_nums *head)
 		cur = cur->next;
 	}
 }
+
 void	free_lst(t_nums **head)
 {
 	t_nums	*tmp;
@@ -64,6 +65,6 @@ t_nums	*fill_lst(int ac, char **av)
 	}
 	free(nums[i]);
 	free(nums);
-  assign_index(head);
+	assign_index(head);
 	return (head);
 }
