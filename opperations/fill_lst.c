@@ -12,6 +12,27 @@
 
 #include "../push_swap.h"
 
+static void	assign_index(t_nums *head)
+{
+	t_nums	*cur;
+	t_nums	*other;
+	int		rank;
+
+	cur = head;
+	while (cur)
+	{
+		rank = 0;
+		other = head;
+		while (other)
+		{
+			if (other->num < cur->num)
+				rank++;
+			other = other->next;
+		}
+		cur->index = rank;
+		cur = cur->next;
+	}
+}
 void	free_lst(t_nums **head)
 {
 	t_nums	*tmp;
@@ -43,5 +64,6 @@ t_nums	*fill_lst(int ac, char **av)
 	}
 	free(nums[i]);
 	free(nums);
+  assign_index(head);
 	return (head);
 }

@@ -13,6 +13,7 @@ static void zeros_ops(t_bench *bench)
   bench->rrb = 0;
   bench->rrr = 0;
 }
+
 static void merge(t_nums **head_a, t_nums **head_b, int algo, int bench_op, t_bench *bench)
 {
   if (algo == 1)
