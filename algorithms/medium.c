@@ -91,6 +91,14 @@ void	medium(t_nums **head_a, t_nums **head_b, t_bench *bench)
 {
 	int	chunk;
 
+	if (!head_a || !*head_a || is_sorted(*head_a))
+		return ;
+	if (ft_lstsize(*head_a) == 2)
+	{
+		if ((*head_a)->num > (*head_a)->next->num)
+			swap_a(head_a, bench);
+		return ;
+	}
 	chunk = ft_sqrt(ft_lstsize(*head_a)) * 14 / 10;
 	if (chunk < 1)
 		chunk = 1;

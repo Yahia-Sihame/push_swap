@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebajja <ebajja@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ysihame <ysihame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 16:21:03 by ebajja            #+#    #+#             */
-/*   Updated: 2026/11/16 17:05:04 by ebajja           ###   ########.fr       */
+/*   Updated: 2026/11/17 10:22:46 by ysihame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ static int	read_instruction(t_nums **lst_a, t_nums **lst_b)
 				return (1);
 			op[i++] = c;
 		}
+		bytes = read(0, &c, 1);
 	}
 	if (bytes < 0)
 		return (1);

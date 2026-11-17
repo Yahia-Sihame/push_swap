@@ -90,6 +90,7 @@ void	ft_lstadd_back(t_nums **lst, t_nums *new);
 t_nums	*fill_lst(int ac, char **av);
 void	free_lst(t_nums **head);
 int		ft_lstsize(t_nums *lst);
+int		is_sorted(t_nums *head);
 
 //------->ALGOS:
 int		choose(int ac, char **av, int *bench);

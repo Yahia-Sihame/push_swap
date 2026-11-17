@@ -47,10 +47,16 @@ static void	push_swap(int ac, char **av, t_bench *bench)
 
 	disorder = compute_disorder(ac, av);
 	bench_op = 0;
-	algo = 0;
 	head_b = NULL;
 	head_a = fill_lst(ac, av);
 	algo = choose(ac, av, &bench_op);
+	if (!head_a || is_sorted(head_a))
+	{
+		if (bench_op == 1)
+			ft_bench(bench, algo);
+		free_lst(&head_a);
+		return ;
+	}
 	if (algo == 4)
 		adaptive(&head_a, &head_b, bench, disorder);
 	merge(&head_a, &head_b, algo, bench);
@@ -64,7 +70,10 @@ int	main(int ac, char **av)
 {
 	t_bench	bench;
 
+	if (ac < 2)
+		return (0);
 	bench.disorder = compute_disorder(ac, av);
 	zeros_ops(&bench);
 	push_swap(ac, av, &bench);
+	return (0);
 }

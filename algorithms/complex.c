@@ -96,13 +96,18 @@ void	complex(t_nums **a, t_nums **b, t_bench *bench)
 {
 	int	len_a;
 
+	if (!a || !*a || is_sorted(*a))
+		return ;
 	len_a = ft_lstsize(*a);
-	if (len_a > 3 && !*b)
+	if (len_a == 2 && (*a)->num > (*a)->next->num)
+		swap_a(a, bench);
+	if (len_a <= 2)
+		return ;
+	if (len_a > 3)
 		push_b(a, b, bench);
-	if (len_a > 4 && !(*b)->next)
+	if (len_a > 4)
 		push_b(a, b, bench);
-	len_a = ft_lstsize(*a);
-	while (len_a > 3)
+	while (ft_lstsize(*a) > 3)
 	{
 		set_current_index(*a);
 		set_current_index(*b);
@@ -110,7 +115,6 @@ void	complex(t_nums **a, t_nums **b, t_bench *bench)
 		cost_analysis_a(*a, *b);
 		set_cheapest(*a);
 		push_cheapest_to_b(a, b, bench);
-		len_a--;
 	}
 	sort_three(a, bench);
 	push_b_to_a(a, b, bench);

@@ -34,6 +34,17 @@ static void	assign_index(t_nums *head)
 	}
 }
 
+int	is_sorted(t_nums *head)
+{
+	while (head && head->next)
+	{
+		if (head->num > head->next->num)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
 void	free_lst(t_nums **head)
 {
 	t_nums	*tmp;

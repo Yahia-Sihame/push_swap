@@ -73,7 +73,7 @@ static int	**to_int(char **arr)
 	int	**ints;
 	int	j;
 
-	ints = malloc(sizeof(int *) * (len_arr(arr) + 1));
+	ints = ft_calloc(len_arr(arr) + 1, sizeof(int *));
 	if (!ints)
 		return (NULL);
 	j = 0;
@@ -85,7 +85,6 @@ static int	**to_int(char **arr)
 			ints[j] = malloc(sizeof(int));
 			if (!ints[j])
 				free_exit(ints, arr);
-			ints[j + 1] = NULL;
 			*ints[j] = (int )check_for_max(ints, arr[len], arr);
 			j++;
 		}
@@ -106,6 +105,8 @@ int	**parsed(int ac, char **av)
 	if (!strs)
 		free_exit(NULL, NULL);
 	ints = to_int(strs);
+	if (!ints)
+		free_exit(NULL, NULL);
 	check_dup(ints);
 	return (ints);
 }

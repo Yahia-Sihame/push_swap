@@ -19,9 +19,11 @@ void	ft_putdouble(double num)
 
 	integer = (int)num;
 	decimal = (int)((num - integer) * 100);
+	if (decimal < 0)
+		decimal = -decimal;
 	ft_putnbr_fd(integer, 2);
-	write(1, ".", 1);
+	write(2, ".", 1);
 	if (decimal < 10)
-		write(1, "0", 1);
+		write(2, "0", 1);
 	ft_putnbr_fd(decimal, 2);
 }

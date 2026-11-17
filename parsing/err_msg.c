@@ -14,6 +14,8 @@
 
 int	check_algo(char *str)
 {
+	if (!str)
+		return (0);
 	if (!ft_strcmp(str, SMPL))
 		return (1);
 	else if (!ft_strcmp(str, MD))
@@ -64,8 +66,10 @@ static int	check_args(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	i = 1;
-	while (check_algo(av[i]))
+	while (i < ac && check_algo(av[i]))
 		i++;
+	if (i == ac)
+		return (1);
 	while (i < ac)
 	{
 		if (check_chars(av[i]))

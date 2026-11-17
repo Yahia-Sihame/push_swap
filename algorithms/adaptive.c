@@ -15,6 +15,13 @@
 void	adaptive(t_nums **head_a, t_nums **head_b, t_bench *bench,
 		double disorder)
 {
+	if (!head_a || !*head_a || is_sorted(*head_a))
+		return ;
+	if (ft_lstsize(*head_a) <= 5)
+	{
+		complex(head_a, head_b, bench);
+		return ;
+	}
 	if (disorder < 20.0)
 		simple(head_a, head_b, bench);
 	else if (disorder < 50.0)
